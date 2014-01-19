@@ -1,0 +1,63 @@
+\documentclass[a4paper,12pt, titlepage]{article}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+
+$Titulo:1:1:title$
+
+## Puedes insertar saltos de linea con \\
+$Autor-Descripcion*:1:1:author$
+$Fecha:1:1:date$
+
+\begin{document}
+\maketitle
+
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+[Introducción]
+$*Parrafo:1:1:$
+
+$*Parrafo:1:1:$
+
+[Sección 1]
+$*Parrafo:1:1:$
+
+$*Parrafo:1:1:$
+
+[Sección 2]
+
+$Titulo subseccion:1:1:subsection$
+$*Parrafo:1:1:$
+
+$*Parrafo:1:1:$
+
+$Titulo subseccion:1:1:subsection$
+$*Parrafo:1:1:$
+
+$*Parrafo:1:1:$
+
+[Sección 3]
+$*Parrafo:1:1:$
+
+$*Parrafo:1:1:$
+
+$*Parrafo:1:1:$
+
+$*Parrafo:1:1:$
+
+[Sección 4]
+
+$*Parrafo:1:1:$
+
+(begin(itemize
+
+$*Item:1:3:item$
+
+)end)itemize
+
+\end{document}

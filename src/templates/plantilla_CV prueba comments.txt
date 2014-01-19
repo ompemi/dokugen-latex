@@ -1,0 +1,114 @@
+%=========================================================%
+% Plantilla de LaTeX para DokuGen 
+%		Autor : Omar Pera Mira
+%=========================================================%
+
+%--------------------------------------------------------------%
+%	CAMPO DE TEXTO / ITEM DE UNA LISTA / PARRAFO
+%--------------------------------------------------------------%
+%	
+%		$
+% 		Nombre que se vera en Dokugen como informacion a escribir
+%				-	Se separa con comas los nombres si el comando LaTeX a utilizar
+%					tiene mas de un campo
+%				- Por defecto se formatea cada campo con {}, si la etiqueta de LaTeX
+%					es con [], solo tienes que delimitar ese campo entre corchetes
+%				- Si quieres que el campo de texto donde se va a escribir sea mayor
+%					y multilinea se indica con un '*'. 
+%		:
+%			Campo obligatorio con texto para el comando latex (Aun no implementado)
+%					Se indica 0 --> opcional   1 --> obligatorio
+%		:
+%			Numero de veces que se repite este item o campo/s de texto
+%		:
+%			Comando de LaTeX a utilizar
+%					Si dejas el campo vacio es un parrafo de texto
+%		$
+%
+%=======================EJEMPLO================================%
+%	entrada:						$[Título],Descripción*:1:3:cvline$ 
+% salida para Latex:	\cvline[]{} 		
+% salida Dokugen:			2 campos de texto con el campo de Descripcion
+%											más grande y repetido 3 veces
+%==============================================================%
+%--------------------------------------------------------------%
+%	SECCION DEL DOCUMENTO
+%--------------------------------------------------------------%
+%
+%	[ 
+% 	Nombre de la sección (Se podra modificar)
+%	: 
+%		(opcional) Etiqueta latex para cada sección, por defecto --> section
+%	]
+%
+%=======================EJEMPLO================================%
+%	entrada:						[Formación académica]
+% salida para Latex:	\section{Formación académica}		
+% salida Dokugen:			Nueva pestaña para separar contenidos con un
+%											campo para modificar el titulo de la seccion
+%==============================================================%
+%--------------------------------------------------------------%
+%	COMENTARIOS DE LA PLANTILLA
+%--------------------------------------------------------------%
+%	Para dar informacion de la plantilla antes de cualquier item
+% añadir ## Comment para que salga una etiqueta de texto
+% en la aplicación DokuGen
+%--------------------------------------------------------------%
+
+\documentclass[11pt,a4paper]{moderncv}
+\moderncvtheme[blue]{classic}                 % 'blue', 'orange', 'red', 'green', 'grey' and 'roman' --> casual,classic
+\usepackage[latin1]{inputenc}                   % replace by the encoding you are using
+\usepackage[scale=0.8]{geometry}
+\recomputelengths                             % required when changes are made to page layout lengths
+
+
+%=========MODIFICABLE==============%
+## Puedes modificar la plantilla, cambiar el numero
+## de campos, añadir nuevos...
+
+$Título principal:1:1:title$
+$Nombre:1:1:firstname$
+$Apellidos:1:1:familyname$
+$Dirección,Ciudad:1:1:address$
+$Móvil:1:1:mobile$
+
+## Puedes modificar la plantilla, cambiar el numero
+## de campos, añadir nuevos...
+
+$E-mail:1:1:email$
+$Información adicional:1:1:extrainfo$
+$Descripción/propósitos:1:1:quote$
+%===================================%
+
+\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+\begin{document}
+\maketitle
+
+%==========MODIFICABLE=============%
+## Puedes modificar la plantilla, cambiar el numero
+## de campos, añadir nuevos...
+
+[Formación Academica]
+
+## Puedes modificar la plantilla, cambiar el numero
+## de campos, añadir nuevos...
+
+$Año,Título,Institución,Ciudad,Nivel/Nota,Descripción*:1:3:cventry$
+
+[Experiencia]
+$Año,Nombre Trabajo,Función,Ciudad,Otros,Descripción*:1:3:cventry$
+
+[Idiomas]
+$Idioma,Nivel,Comentarios*:1:3:cvlanguage$
+
+[Proyectos realizados]
+$Título,Descripción*:1:3:cvline$
+
+[Intereses]
+$Título,Descripción*:1:3:cvline$
+
+[Extras]
+$Título,Descripción*:1:3:cvline$
+%===================================%
+
+\end{document}

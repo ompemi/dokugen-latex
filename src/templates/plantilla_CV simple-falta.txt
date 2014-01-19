@@ -1,0 +1,167 @@
+%=========================================================%
+% Plantilla de LaTeX para DokuGen 
+%		Autor : Omar Pera Mira
+%=========================================================%
+
+%--------------------------------------------------------------%
+%	CAMPO DE TEXTO / ITEM DE UNA LISTA / PARRAFO
+%--------------------------------------------------------------%
+%	
+%		$
+% 		Nombre que se vera en Dokugen como informacion a escribir
+%				-	Se separa con comas los nombres si el comando LaTeX a utilizar
+%					tiene mas de un campo
+%				- Por defecto se formatea cada campo con {}, si la etiqueta de LaTeX
+%					es con [], solo tienes que delimitar ese campo entre corchetes
+%				- Si quieres que el campo de texto donde se va a escribir sea mayor
+%					y multilinea se indica con un '*'. 
+%		:
+%			Campo obligatorio con texto para el comando latex (Aun no implementado)
+%					Se indica 0 --> opcional   1 --> obligatorio
+%		:
+%			Numero de veces que se repite este item o campo/s de texto
+%		:
+%			Comando de LaTeX a utilizar
+%					Si dejas el campo vacio es un parrafo de texto
+%		$
+%
+%=======================EJEMPLO================================%
+%	entrada:						$[Título],Descripción*:1:3:cvline$ 
+% salida para Latex:	\cvline[]{} 		
+% salida Dokugen:			2 campos de texto con el campo de Descripcion
+%											más grande y repetido 3 veces
+%==============================================================%
+%--------------------------------------------------------------%
+%	SECCION DEL DOCUMENTO
+%--------------------------------------------------------------%
+%
+%	[ 
+% 	Nombre de la sección (Se podra modificar)
+%	: 
+%		(opcional) Etiqueta latex para cada sección, por defecto --> section
+%	]
+%
+%=======================EJEMPLO================================%
+%	entrada:						[Formación académica]
+% salida para Latex:	\section{Formación académica}		
+% salida Dokugen:			Nueva pestaña para separar contenidos con un
+%											campo para modificar el titulo de la seccion
+%==============================================================%
+%--------------------------------------------------------------%
+%	COMENTARIOS DE LA PLANTILLA
+%--------------------------------------------------------------%
+%	Para dar informacion de la plantilla antes de cualquier item
+% añadir ## Comment para que salga una etiqueta de texto
+% en la aplicación DokuGen
+%--------------------------------------------------------------%
+
+\documentclass[margin,line]{res}
+\usepackage[latin1]{inputenc}
+
+
+\oddsidemargin -.5in
+\evensidemargin -.5in
+\textwidth=6.0in
+\itemsep=0in
+\parsep=0in
+
+\newenvironment{list1}{
+  \begin{list}{\ding{113}}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{0.17in}}}{\end{list}}
+\newenvironment{list2}{
+  \begin{list}{$\bullet$}{%
+      \setlength{\itemsep}{0in}
+      \setlength{\parsep}{0in} \setlength{\parskip}{0in}
+      \setlength{\topsep}{0in} \setlength{\partopsep}{0in} 
+      \setlength{\leftmargin}{0.2in}}}{\end{list}}
+
+
+\begin{document}
+
+$Nombre:1:1:name$
+
+\begin{resume}
+
+[Información de contacto]
+
+\vspace{.05in}
+\begin{tabular}{@{}p{2in}p{4in}}
+$Dirección:1:1:$        
+&
+{\it Telefono:}  
+$Teléfono:1:1:$ 
+\\    
+$Información adicional:1:1:$ 
+ & 
+{\it Fax:}
+$Fax:1:1:$  
+\\         
+ 
+& 
+{\it E-mail:}  
+$E-mail:1:1:$ 
+\\       
+$Ciudad:1:1:$ 
+& {\it WWW:}
+$Web:1:1:$ 
+\\     
+
+\end{tabular}
+
+
+[Formación acádemica]
+$Institución:1:1:bf$
+$Ciudad:1:1:$
+$Título:1:1:em$
+\hfill
+$Institución:1:1:bf$
+\\
+$Descripción:1:1:$
+
+$Institución:1:1:bf$
+$Ciudad:1:1:$
+$Título:1:1:em$
+\hfill
+$Institución:1:1:bf$
+\\
+$Descripción:1:1:$
+
+[Experiencia]
+$Institución:1:1:bf$
+$Ciudad:1:1:$
+$Título:1:1:em$
+\hfill
+$Institución:1:1:bf$
+\\
+$Descripción:1:1:$
+
+$Institución:1:1:bf$
+$Ciudad:1:1:$
+$Título:1:1:em$
+\hfill
+$Institución:1:1:bf$
+\\
+$Descripción:1:1:$
+
+[Publicaciones]
+$Intereses*:1:4:$
+
+[Publicaciones]
+$Párrafo*:1:4:$
+
+[Extra]
+(begin:list2(
+
+$Item*:1:4:item$
+
+)end:list2)
+
+\end{resume}
+\end{document}
+
+
+
+
